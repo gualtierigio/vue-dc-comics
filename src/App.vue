@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import "./style/dimension-layout.scss";
 @import "./style/variables.scss";
 
 #app {
