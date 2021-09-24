@@ -103,6 +103,8 @@ ul{
     list-style-type: none;
     a{
         text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
         color: $nav-text-color;
     }
 }
@@ -111,7 +113,7 @@ li{
     overflow: hidden;
     align-items: center;
     height: 100%;
-    margin-right: 15px;
+    margin-left: 15px;
     text-transform: uppercase;
     border: 3px solid white;
     &:hover{
