@@ -1,8 +1,7 @@
 <template>
-   <header>
-       <img src="../assets/img/dc-logo.png" alt="">
+   <footer>
 
-   </header>
+   </footer>
 </template>
 
 <script>
