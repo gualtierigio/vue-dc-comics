@@ -4,7 +4,7 @@
             <img src="../assets/img/dc-logo.png" alt="">
             <nav>
                 <ul class="d-flex">
-                    <li v-for="(link, index) in links" :key="index">
+                    <li class="d-flex" v-for="(link, index) in links" :key="index">
                         <a href="{link.url}" :class="{active : link.current}">{{link.text}}</a>
                     </li>
                 </ul>
@@ -77,21 +77,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../style/variables.scss";
 
 header{
     height: 120px;
     align-items: center;
-    border: 1px solid red;
 }
 
 header img{
     height: 80px;
-
 }
 
 div.d-flex.page-wrap{
     align-items: center;
     justify-content: space-between;
+    height: 100%;
+}
+
+nav{
+    height: 100%;
 }
 
 ul{
@@ -99,13 +103,22 @@ ul{
     list-style-type: none;
     a{
         text-decoration: none;
+        color: $nav-text-color;
     }
 }
 
 li{
-    padding-right: 15px;
-    :Hover{
-        border-bottom: 3px solid blue;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+    margin-right: 15px;
+    text-transform: uppercase;
+    border: 3px solid white;
+    &:hover{
+        border-bottom: 3px solid #0c7cec;
+        a {
+            color: #0c7cec;
+        }
     }
 }
 
