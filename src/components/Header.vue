@@ -1,7 +1,7 @@
 <template>
    <header class="d-flex">
        <div class="page-wrap d-flex">
-            <img src="../assets/img/dc-logo.png" alt="">
+           <a href="#home"><img src="../assets/img/dc-logo.png" alt=""></a>
             <nav>
                 <ul class="d-flex">
                     <li class="d-flex" v-for="(link, index) in links" :key="index">
@@ -117,9 +117,9 @@ li{
     text-transform: uppercase;
     border: 3px solid white;
     &:hover{
-        border-bottom: 3px solid #0c7cec;
+        border-bottom: 3px solid $main-blue-color;
         a {
-            color: #0c7cec;
+            color: $main-blue-color;
         }
     }
 }
