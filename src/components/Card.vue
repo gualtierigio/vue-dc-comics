@@ -1,21 +1,15 @@
 <template>
     <div class="thumb">
-        <img :src="dcComic.thumb" :alt="dcComic.type">
+        <img :src="fumettoSource" :alt="dcComic.type">
         <h4>{{dcComic.series}}</h4>
     </div>
 </template>
 
 <script>
-import buyComics from "../data/buy-comics.json";
 
 export default {
-    name: 'Main',
-    data: function () {
-      return {
-         buyComics
-      }
-   }
-
+    name: 'Card',
+    props: ["fumettoSource", "title", ]
 }
 </script>
 

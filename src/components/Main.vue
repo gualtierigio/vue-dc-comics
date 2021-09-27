@@ -7,7 +7,7 @@
       <section>
          <div class="page-wrap">
             <div class="content-wrap d-flex">
-               <Card />
+               <Card v-for="(dcComic, index) in dcComics" :key="index" :fumettoSource="dccomic.thumb" />
             </div>
             <button><a href="#">Load more</a></button>
          </div>
@@ -33,8 +33,9 @@ import dcComics from "../data/dc-comics.json";
 
 export default {
    name: 'Main',
+   props: ['fumettoSource', 'title'],
    components: {
-      Card
+      Card,
    },
    data: function () {
       return {
@@ -96,15 +97,6 @@ button{
    height: 700px;
    margin-top: 40px;
    flex-wrap: wrap;
-}
-
-.thumb{
-   // altezza provvisoria
-   width: calc(100% / 6 - 20px);
-   margin: 10px 10px 0 10px;
-   img{
-      width: 100%;
-   }
 }
 
 // inizio parte blu
