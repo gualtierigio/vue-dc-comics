@@ -7,10 +7,7 @@
       <section>
          <div class="page-wrap">
             <div class="content-wrap d-flex">
-               <div v-for="(dcComic, index) in dcComics" :key="index" class="thumb">
-                  <img :src="dcComic.thumb" :alt="dcComic.type">
-                  <h4>{{dcComic.series}}</h4>
-               </div>
+               <Card />
             </div>
             <button><a href="#">Load more</a></button>
          </div>
@@ -30,12 +27,15 @@
 </template>
 
 <script>
-// import dcComics from "../data/dc-comics.jason";
+import Card from "./Card.vue";
 import buyComics from "../data/buy-comics.json";
 import dcComics from "../data/dc-comics.json";
 
 export default {
    name: 'Main',
+   components: {
+      Card
+   },
    data: function () {
       return {
          dcComics,
