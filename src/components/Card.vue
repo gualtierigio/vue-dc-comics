@@ -1,7 +1,7 @@
 <template>
     <div class="thumb">
-        <img :src="fumettoSource" :alt="dcComic.type">
-        <h4>{{dcComic.series}}</h4>
+        <img :src="fumettoSource" :alt="categories">
+        <h4>{{title}}</h4>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 
 export default {
     name: 'Card',
-    props: ["fumettoSource", "title", ]
+    props: ['fumettoSource', 'title', 'hero' , 'categories']
 }
 </script>
 

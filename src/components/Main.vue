@@ -7,7 +7,8 @@
       <section>
          <div class="page-wrap">
             <div class="content-wrap d-flex">
-               <Card v-for="(dcComic, index) in dcComics" :key="index" :fumettoSource="dccomic.thumb" />
+               <Card v-for="(dcComic, index) in dcComics" :key="index" :fumettoSource="dcComic.thumb" 
+               :categories="dcComic.type" :title="dcComic.series" />
             </div>
             <button><a href="#">Load more</a></button>
          </div>
@@ -33,7 +34,7 @@ import dcComics from "../data/dc-comics.json";
 
 export default {
    name: 'Main',
-   props: ['fumettoSource', 'title'],
+   props: ['fumettoSource', 'title', 'hero' , 'categories'],
    components: {
       Card,
    },
