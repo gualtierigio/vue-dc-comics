@@ -1,47 +1,39 @@
 <template>
    <main>
-      <div class="page-wrap">
-         <div class="content-wrap d-flex">
-            <h2>--&gt; Content goes here &lt;-- </h2>
+      <section id="jumbotron"></section>
+      <!-- Fumetti -->
+      <section>
+         <div class="page-wrap">
+            <div class="content-wrap d-flex">
+               <div class="thumb"></div>
+            </div>
+            <button>Load more</button>
          </div>
-      </div>
+      </section>
+      <!-- Fumetti / -->
+
+      <!-- buy comics -->
       <section class="buy-comics">
          <div class="page-wrap d-flex">
             <div v-for="(buyComic, index) in buyComics" :key="index" class="buy-comics__content">
-               <a class="d-flex" href=""><img src="{buyComic.img}" alt="">{{buyComic.text}}</a>
+               <a class="d-flex" href=""><img :src="`${buyComic.img}`" alt="">{{buyComic.text}}</a>
             </div>
          </div>
       </section>
+      <!-- buy comics / -->
    </main>
 </template>
 
 <script>
+// import dcComics from "../data/dc-comics.jason";
+import buyComics from "../data/buy-comics.json";
+
 export default {
    name: 'Main',
    data: function () {
       return {
-         buyComics: [
-            {
-               text: "digital comics",
-               img: "../assets/img/buy-comics-digital-comics.png",
-            },
-            {
-               text: "dc merchandise",
-               img: "../assets/img/buy-comics-merchandise.png",
-            },
-            {
-               text: "subscription",
-               img: "../assets/img/buy-comics-subscription.png",
-            },
-            {
-               text: "comic shop locator",
-               img: "../assets/img/buy-comics-shop-locator.png",
-            },
-            {
-               text: "digital comics",
-               img: "",
-            },
-         ]
+         // dcComics,
+         buyComics,
       }
    }
 
@@ -52,19 +44,39 @@ export default {
 @import "../style/variables.scss";
 
 main{
-   height: 120px;
-   background-color: black;
+   background-color: $nav-text-color;
    color: $white-color;
+}
+
+#jumbotron{
+   background-image: url(../assets/img/jumbotron.jpg);
+   background-position: top;
+   background-size: cover;
+   height: 200px;
 }
 
 div.page-wrap{
    height: 100%;
+   button{
+      margin: 30px;
+      background-color: blue;
+   }
 }
 
 div.content-wrap{
-   height: 100%;
-   align-items: center;
+   height: 500px;
+   border: 1px solid red;
 }
+
+.thumb{
+   // altezza provvisoria
+   height: 150px;
+   width: calc(100% / 6);
+   border: 1px solid red;
+   flex-wrap: wrap;
+}
+
+// inizio parte blu
 
 .buy-comics{
    height: 140px;
