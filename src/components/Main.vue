@@ -1,13 +1,18 @@
 <template>
    <main>
-      <section id="jumbotron"></section>
+      <section id="jumbotron">
+         <button><a href="#">current series</a></button>
+      </section>
       <!-- Fumetti -->
       <section>
          <div class="page-wrap">
             <div class="content-wrap d-flex">
-               <div class="thumb"></div>
+               <div v-for="(dcComic, index) in dcComics" :key="index" class="thumb">
+                  <img :src="dcComic.thumb" :alt="dcComic.type">
+                  <h4>{{dcComic.series}}</h4>
+               </div>
             </div>
-            <button>Load more</button>
+            <button><a href="#">Load more</a></button>
          </div>
       </section>
       <!-- Fumetti / -->
@@ -16,7 +21,7 @@
       <section class="buy-comics">
          <div class="page-wrap d-flex">
             <div v-for="(buyComic, index) in buyComics" :key="index" class="buy-comics__content">
-               <a class="d-flex" href=""><img :src="`${buyComic.img}`" alt="">{{buyComic.text}}</a>
+               <a class="d-flex" href=""><img :src="buyComic.img" alt="">{{buyComic.text}}</a>
             </div>
          </div>
       </section>
@@ -27,12 +32,13 @@
 <script>
 // import dcComics from "../data/dc-comics.jason";
 import buyComics from "../data/buy-comics.json";
+import dcComics from "../data/dc-comics.json";
 
 export default {
    name: 'Main',
    data: function () {
       return {
-         // dcComics,
+         dcComics,
          buyComics,
       }
    }
@@ -52,28 +58,53 @@ main{
    background-image: url(../assets/img/jumbotron.jpg);
    background-position: top;
    background-size: cover;
-   height: 200px;
-}
-
-div.page-wrap{
-   height: 100%;
+   height: 400px;
+   position: relative;
    button{
-      margin: 30px;
-      background-color: blue;
+      padding: 15px 25px;
+      font-size: 1.4rem;
+      position: absolute;
+      bottom: -28px;
+      left: 14%;
+      a{
+         text-decoration: none;
+         color: $white-color;
+      }
    }
 }
 
-div.content-wrap{
-   height: 500px;
-   border: 1px solid red;
+button{
+   background-color: $main-blue-color;
+   text-transform: uppercase;
+   border: $main-blue-color;
+   font-weight: bold;
+}
+
+.page-wrap{
+   height: 100%;
+   button{
+      margin: 30px;
+      padding: 8px 45px;
+      a{
+         text-decoration: none;
+         color: $white-color;
+      }
+   }
+}
+
+.content-wrap{
+   height: 700px;
+   margin-top: 40px;
+   flex-wrap: wrap;
 }
 
 .thumb{
    // altezza provvisoria
-   height: 150px;
-   width: calc(100% / 6);
-   border: 1px solid red;
-   flex-wrap: wrap;
+   width: calc(100% / 6 - 20px);
+   margin: 10px 10px 0 10px;
+   img{
+      width: 100%;
+   }
 }
 
 // inizio parte blu
